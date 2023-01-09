@@ -1,0 +1,19 @@
+tasks:
+  -
+    name: zef-build
+    language: Bash
+    default: true
+    code: |
+      set -e
+      cd source/
+      zef install --deps-only --/test .
+      zef test .
+      zef install . 
+    followup:
+      -
+        name: check-doc
+  -
+    name: check-doc
+    plugin: good-doc
+    config:
+      path: source/README.md
