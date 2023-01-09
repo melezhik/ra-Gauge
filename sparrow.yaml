@@ -5,6 +5,7 @@ tasks:
     default: true
     code: |
       set -e
+      raku --version
       cd source/
       zef install --deps-only --/test .
       zef test .
